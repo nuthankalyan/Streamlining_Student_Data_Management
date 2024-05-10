@@ -1,1 +1,0 @@
-cursor.execute("insert into dbo.test1 values(2,'sujith')")
