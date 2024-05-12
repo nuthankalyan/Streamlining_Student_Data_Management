@@ -3,7 +3,7 @@ app = Flask(__name__)
 @app.route('/',methods = ['GET','POST'])
 def home():
     if request.method == 'POST':
-        from azure_connect import cursor,conn
+        # from azure_connect import cursor,conn
         roll = request.form.get('roll')
         name = request.form.get('name')
         gender = request.form.get('gender')
@@ -15,8 +15,8 @@ def home():
         yearofstudy = request.form.get('yearofstudy')
         yearofgrad = request.form.get('yearofgraduation')
         caste = request.form.get('caste')
-        cursor.execute(f"insert into dbo.test1 values(?,?)",(roll,name))
-        conn.commit()
+        # cursor.execute(f"insert into dbo.test1 values(?,?)",(roll,name))
+        # conn.commit()
         return render_template('index.html')
     return render_template('index.html')
 
