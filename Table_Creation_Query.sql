@@ -7,9 +7,9 @@ CREATE TABLE [Student] (
   [MotherName] varchar(10),
   [Fathername] varchar(100),
   [YearOfStudy] integer,
-  [BranchId] integer,
   [YearOfGraduation] integer,
-  [Caste] varchar(5)
+  [Caste] varchar(5),
+  [BranchName] varchar(10)
 )
 GO
 
@@ -19,5 +19,5 @@ CREATE TABLE [Branch] (
 )
 GO
 
-ALTER TABLE [Student] ADD FOREIGN KEY ([BranchId]) REFERENCES [Branch] ([Branchid])
+ALTER TABLE [Student] ADD FOREIGN KEY ([BranchName]) REFERENCES [Branch] ([BranchName])
 GO
