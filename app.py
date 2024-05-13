@@ -4,7 +4,7 @@ app = Flask(__name__)
 def home():
     if request.method == 'POST':
         import pymssql
-        connection_string = "Driver={ODBC Driver 18 for SQL Server};Server=tcp:nuthanserver.database.windows.net,1433;Database=StudentDetails;Uid=CloudSA9645e9f0;Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+        connection_string = "Driver={ODBC Driver 18 for SQL Server};Server=tcp:nuthanserver.database.windows.net,1433;Database=StudentDetails;Uid=CloudSA9645e9f0;Pwd=Nuthan@8106;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
         conn = pymssql.connect(connection_string)
         cursor = conn.cursor()
         roll = request.form.get('rollno')
