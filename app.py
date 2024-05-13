@@ -3,9 +3,7 @@ app = Flask(__name__)
 @app.route('/',methods = ['GET','POST'])
 def home():
     if request.method == 'POST':
-        import pymssql
-        conn = pymssql.connect(server='nuthanserver.database.windows.net', user='CloudSA9645e9f0', password='Nuthan@8106', database='StudentDetails')
-        cursor = conn.cursor()
+        from azure_connect import conn,cursor
         roll = request.form.get('rollno')
         name = request.form.get('name')
         gender = request.form.get('gender')
@@ -17,9 +15,8 @@ def home():
         yearofstudy = request.form.get('yearofstudy')
         yearofgrad = request.form.get('gradyear')
         caste = request.form.get('caste')
-        cursor.execute("INSERT INTO dbo.Student VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (roll, name, gender, email, phone, mother, father, yearofstudy, yearofgrad, caste, branch))
+        cursor.execute("INSERT INTO dbo.Student VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (roll, name, gender, email, phone, mother, father, yearofstudy, yearofgrad, caste, branch))
         conn.commit()
-        conn.close()
         print(roll,name,gender,email,phone,mother,father,branch,yearofstudy,yearofgrad,caste)
         return render_template('first.html')
     return render_template('first.html')
