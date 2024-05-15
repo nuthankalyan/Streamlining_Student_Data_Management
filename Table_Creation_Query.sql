@@ -14,8 +14,8 @@ CREATE TABLE [Student] (
 GO
 
 CREATE TABLE [Branch] (
-  [Branchid] integer PRIMARY KEY,
-  [BranchName] nvarchar(255)
+  [Branchid] integer,
+  [BranchName] nvarchar(255) PRIMARY KEY
 )
 GO
 
